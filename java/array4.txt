@@ -1,0 +1,29 @@
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        HashMap<Integer, Integer> freqMap = new HashMap<>();
+        for (int num : arr) {
+            if (freqMap.containsKey(num)) {
+                freqMap.put(num, freqMap.get(num) + 1);
+            } else {
+                freqMap.put(num, 1);
+            }
+        }
+        boolean hasUnique = false;
+        for (int num : arr) {
+            if (freqMap.get(num) == 1) {
+                System.out.print(num + " ");
+                hasUnique = true;
+            }
+        }
+        if (!hasUnique) {
+            System.out.println("No unique elements in the array");
+        }
+    }
+}

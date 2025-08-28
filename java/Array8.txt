@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class CommonElementsInThreeSortedArrays {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Step 1: Read sizes of the arrays
+        int n1 = scanner.nextInt();
+        int n2 = scanner.nextInt();
+        int n3 = scanner.nextInt();
+
+        // Step 2: Read arrays
+        int[] arr1 = new int[n1];
+        for (int i = 0; i < n1; i++) {
+            arr1[i] = scanner.nextInt();
+        }
+        int[] arr2 = new int[n2];
+        for (int i = 0; i < n2; i++) {
+            arr2[i] = scanner.nextInt();
+        }
+        int[] arr3 = new int[n3];
+        for (int i = 0; i < n3; i++) {
+            arr3[i] = scanner.nextInt();
+        }
+
+        // Step 3: Initialize pointers
+        int i = 0, j = 0, k = 0;
+
+        boolean foundAny = false;  // to check if common element exists
+
+        // Step 4: Traverse all arrays simultaneously
+        while (i < n1 && j < n2 && k < n3) {
+            // If all elements are equal, print element and move pointers
+            if (arr1[i] == arr2[j] && arr2[j] == arr3[k]) {
+                System.out.print(arr1[i] + " ");
+                foundAny = true;
+                i++;
+                j++;
+                k++;
+            }
+            // Else move the pointer(s) with the smallest element
+            else if (arr1[i] < arr2[j]) {
+                i++;
+            } else if (arr2[j] < arr3[k]) {
+                j++;
+            } else {
+                k++;
+            }
+        }
+
+        // If no common element found
+        if (!foundAny) {
+            System.out.println("No common elements");
+        }
+    }
+}

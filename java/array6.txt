@@ -1,0 +1,26 @@
+import java.util.*;
+import java.util.Arrays;
+
+public class RotateArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int key = sc.nextInt();
+        key = key % size;
+        int[] rotated = new int[size];
+        int index = 0;
+        for (int i = key; i < size; i++) {
+            rotated[index++] = arr[i];
+        }
+        for (int i = 0; i < key; i++) {
+            rotated[index++] = arr[i];
+        }
+        for (int i = 0; i < size; i++) {
+            System.out.print(rotated[i] + (i < size - 1 ? " " : ""));
+        }
+    }
+}

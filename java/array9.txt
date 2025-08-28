@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int len = scanner.nextInt();
+        int[] arr = new int[len];
+        for (int i = 0; i < len; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        int n = scanner.nextInt();
+        int start = len / 2;
+        int secondHalfLength = len - start;
+        if (secondHalfLength == 0) {
+            for (int num : arr) {
+                System.out.print(num + " ");
+            }
+            return;
+        }
+        int rotation = n % secondHalfLength;
+        int[] secondHalf = new int[secondHalfLength];
+        for (int i = 0; i < secondHalfLength; i++) {
+            secondHalf[i] = arr[start + i];
+        }
+        int[] rotated = new int[secondHalfLength];
+        for (int i = 0; i < secondHalfLength; i++) {
+            rotated[i] = secondHalf[(i + rotation) % secondHalfLength];
+        }
+        for (int i = 0; i < secondHalfLength; i++) {
+            arr[start + i] = rotated[i];
+        }
+        for (int i = 0; i < len; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}

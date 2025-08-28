@@ -1,0 +1,27 @@
+2. The number of occurrences of a digit in a given number
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        long a= sc.nextLong();
+        int count=0;
+        while(n>0){
+            long currentdigit = n %10;
+            if(currentdigit == a){
+                count++ ;
+        }
+        n/=10;
+    }
+        System.out.println(count);
+            
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    }
+}

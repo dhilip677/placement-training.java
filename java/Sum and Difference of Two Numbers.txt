@@ -1,0 +1,21 @@
+9.Sum and Difference of Two Numbers
+
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int int1 = scanner.nextInt();
+        int int2 = scanner.nextInt();
+        float float1 = scanner.nextFloat();
+        float float2 = scanner.nextFloat();
+        int intSum = int1 + int2;
+        int intDiff = int1 - int2;
+        float floatSum = float1 + float2;
+        float floatDiff = float1 - float2;
+        System.out.println(intSum + " " + intDiff);
+        System.out.printf("%.1f %.1f\n", floatSum, floatDiff);
+
+        scanner.close();
+    }
+}
